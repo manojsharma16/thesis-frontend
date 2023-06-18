@@ -5,3 +5,8 @@ flex: 1;
 height: 1px;
 background: #eee;
 }
+
+.validation-message{
+    color: red;
+    margin-top: 9px;
+}

@@ -10,23 +10,29 @@
                     <p style="font-weight: bold;">Medziphema campu</p>
                     <p style="font-weight: bold;">THESIS FOR M.Sc & Ph.D</p>
                 </div>
-                <form>
+                <form [formGroup]="loginForm" (ngSubmit)="signIn()">
                     <!-- Email input -->
                     <div class="form-outline mb-4">
-                        <label class="form-label" for="form1Example13">Email address</label>
-                        <input type="email" id="form1Example13" class="form-control form-control-lg" />
+                        <label class="form-label" for="form1Example13">Username</label>
+                        <input formControlName="username" type="text" id="form1Example13" class="form-control form-control-lg" />
+                        <div class="validation-message" *ngIf="submitted && loginForm.controls['password'].errors">
+                          <p>Username is required.</p>
+                        </div>
                     </div>
 
                     <!-- Password input -->
                     <div class="form-outline mb-4">
                         <label class="form-label" for="form1Example23">Password</label>
-                        <input type="password" id="form1Example23" class="form-control form-control-lg" />
+                        <input formControlName="password" type="password" id="form1Example23" class="form-control form-control-lg" />
+                        <div class="validation-message" *ngIf="submitted && loginForm.controls['password'].errors">
+                          <p>Password is required.</p>
+                        </div>
                     </div>
                     
 
                     <!-- Submit button -->
                     <div class="m-auto text-center">
-                        <button type="button" (click)="signIn()" class="btn btn-primary btn-lg btn-block">Sign in</button>
+                        <button type="submit"  class="btn btn-primary btn-lg btn-block">Sign in</button>
                     </div>
                 </form>
             </div>
